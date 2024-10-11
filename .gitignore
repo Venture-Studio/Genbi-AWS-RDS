@@ -1,0 +1,78 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environment
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# pipenv
+Pipfile
+Pipfile.lock
+
+# pyenv
+.python-version
+
+# dotenv
+.env
+.env.local
+
+# pyre
+.pyre/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# AWS Credentials and config files (sensitive information)
+.aws/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# JetBrains IDEs (e.g., PyCharm)
+.idea/
+*.iml
+*.iws
+*.ipr
+.idea/
+
+# MacOS-specific files
+.DS_Store
+
+# Windows-specific files
+Thumbs.db
+ehthumbs.db
+
+# CSV files (if you want to exclude all CSVs, but keep those you want by manually adding them)
+*.csv
+
+# Git LFS managed files
+*.csv
