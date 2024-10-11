@@ -3,9 +3,10 @@ import pandas as pd
 import json
 from sqlalchemy import create_engine
 from botocore.exceptions import ClientError
+#to upload new data change on line 9 & line 51
 
 # Load the CSV file into a pandas DataFrame
-df = pd.read_csv('./ETFprices.csv')
+df = pd.read_csv('./ETFprices.csv')                                             #to upload new data change path
 
 def get_secret():
     secret_name = "rds!cluster-5dfdda0f-7553-48a3-ac44-83595bb9fd10"  # Replace with your actual secret name
@@ -47,7 +48,7 @@ if credentials:
 
     try:
         # Upload the DataFrame to the specified table in RDS
-        df.to_sql('etf_prices_data', con=engine, if_exists='replace', index=False)
+        df.to_sql('etf_prices_data', con=engine, if_exists='replace', index=False)              #to upload new data change name of the table
         print("Data uploaded successfully!")
     except Exception as e:
         print(f"Failed to upload data: {e}")
