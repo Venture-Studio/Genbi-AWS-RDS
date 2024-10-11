@@ -1,0 +1,53 @@
+openapi: 3.1.0
+info:
+  title: AWS API for RDS Read
+  description: This API interacts with an AWS Lambda function via API Gateway to read data from an RDS database.
+  version: 1.0.1
+servers:
+  - url: https://4wge9173b8.execute-api.us-west-2.amazonaws.com/test
+    description: AWS API Gateway Test Environment
+paths:
+  /rds_read_for_gpt:
+    post:
+      operationId: postRdsData
+      summary: Execute a SQL query on the RDS database and retrieve data.
+      description: >
+        This endpoint triggers an AWS Lambda function that executes a given SQL query against an RDS database and
+        returns the result.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sql_query:
+                  type: string
+                  description: The SQL query to be executed on the RDS database.
+              required:
+                - sql_query
+      responses:
+        "200":
+          description: A successful response with the RDS data.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      stringValue:
+                        type: string
+                        description: String value from the response.
+                      doubleValue:
+                        type: number
+                        description: Double value from the response.
+                      isNull:
+                        type: boolean
+                        description: Null value indicator from the response.
+        "400":
+          description: Bad Request. Invalid input was provided.
+        "500":
+          description: Server Error. Something went wrong on the server.
