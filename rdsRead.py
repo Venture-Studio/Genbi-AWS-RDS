@@ -1,3 +1,4 @@
+#read from RDS using the client API *limit of response = 1MB
 import boto3
 import json
 from flask import Flask, jsonify

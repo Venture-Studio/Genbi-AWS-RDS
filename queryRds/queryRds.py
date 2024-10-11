@@ -1,3 +1,4 @@
+#lambda function to query RDS
 import psycopg2  # Use psycopg2-binary instead of psycopg
 import boto3
 import json

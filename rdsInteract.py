@@ -1,3 +1,4 @@
+#file to upload data through an SQL query, using field names, data types
 import boto3
 import pandas as pd
 import psycopg2

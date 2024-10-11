@@ -1,3 +1,4 @@
+#upload csv tables by creating a new table in RDS
 import boto3
 import pandas as pd
 import json
