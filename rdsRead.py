@@ -57,7 +57,7 @@ def execute_sql(sql_statement):
 # Define a route to fetch data from the RDS database via API
 @app.route('/api/data', methods=['GET'])
 def get_data():
-    sql_statement = "SELECT * FROM ets_data LIMIT 50 OFFSET 0"  # Replace with your table/query
+    sql_statement = "SELECT * FROM mutual_funds_data LIMIT 50 OFFSET 0"  # Replace with your table/query
     data = execute_sql(sql_statement)
     
     if data:

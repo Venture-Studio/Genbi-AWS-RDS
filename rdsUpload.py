@@ -5,7 +5,7 @@ from sqlalchemy import create_engine
 from botocore.exceptions import ClientError
 
 # Load the CSV file into a pandas DataFrame
-df = pd.read_csv('./ETFs.csv')
+df = pd.read_csv('./ETFprices.csv')
 
 def get_secret():
     secret_name = "rds!cluster-5dfdda0f-7553-48a3-ac44-83595bb9fd10"  # Replace with your actual secret name
@@ -40,13 +40,14 @@ if credentials:
     db_user = credentials['username']
     db_pass = credentials['password']
     db_port = credentials.get('port', '5432')  # Default PostgreSQL port
-
+    print("db_user: ", db_user)
+    print("db_pass: ", db_pass)
     # Create the connection string using SQLAlchemy
     engine = create_engine(f'postgresql://{db_user}:{db_pass}@{db_host}:{db_port}/{db_name}')
 
     try:
         # Upload the DataFrame to the specified table in RDS
-        df.to_sql('ets_data', con=engine, if_exists='replace', index=False)
+        df.to_sql('etf_prices_data', con=engine, if_exists='replace', index=False)
         print("Data uploaded successfully!")
     except Exception as e:
         print(f"Failed to upload data: {e}")
